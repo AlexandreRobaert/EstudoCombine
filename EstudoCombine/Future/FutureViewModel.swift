@@ -11,7 +11,7 @@ import Combine
 class FutureViewModel: ObservableObject {
     
     @Published
-    var message: String = ""
+    var message: String = "Loading"
     
     private var cancellables: Set<AnyCancellable> = []
     
