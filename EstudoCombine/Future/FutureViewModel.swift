@@ -13,10 +13,10 @@ class FutureViewModel: ObservableObject {
     @Published
     var message: String = "Loading"
     
-    private var cancellables: Set<AnyCancellable> = []
+    private var cancellable: AnyCancellable?
     
     func fetch() {
-        fetchMessage()
+        cancellable = fetchMessage()
             .sink { result in
                 switch result {
                 case .finished:
@@ -27,7 +27,6 @@ class FutureViewModel: ObservableObject {
             } receiveValue: { message in
                 self.message = message
             }
-            .store(in: &cancellables)
     }
     
     private func fetchMessage() -> Future<String, Error> {
