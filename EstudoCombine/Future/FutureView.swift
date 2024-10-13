@@ -7,18 +7,24 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct FutureView: View {
+    
+    @StateObject var viewModel: FutureViewModel
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text(viewModel.message)
         }
         .padding()
+        .onAppear {
+            self.viewModel.fetch()
+        }
     }
 }
 
 #Preview {
-    ContentView()
+    FutureView(viewModel: FutureViewModel())
 }

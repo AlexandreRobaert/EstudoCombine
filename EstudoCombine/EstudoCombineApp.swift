@@ -11,7 +11,7 @@ import SwiftUI
 struct EstudoCombineApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            FutureView(viewModel: FutureViewModel())
         }
     }
 }
