@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class FutureViewModel: ObservableObject {
+final class FutureViewModel: ObservableObject {
     
     @Published
     var message: String = "Loading"
